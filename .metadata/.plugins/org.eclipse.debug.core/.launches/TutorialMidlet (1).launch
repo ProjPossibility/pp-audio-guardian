@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<launchConfiguration type="EclipseME.emulatorLaunchConfigurationType">
-<booleanAttribute key="eclipseme.do_ota" value="false"/>
-<stringAttribute key="eclipseme.emulated_class" value="HOME.TutorialMidlet"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="GOOGLE"/>
-</launchConfiguration>
