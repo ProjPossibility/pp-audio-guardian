@@ -1,0 +1,15 @@
+
+public class HelloWorld {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Hey bitch!");
+		System.out.println("i said to suck it" +
+				"what is there to not get about that?");
+	}
+
+}
