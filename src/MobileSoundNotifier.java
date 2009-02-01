@@ -39,33 +39,34 @@ public class MobileSoundNotifier extends MIDlet implements CommandListener
 		{
 		}
 		
-	    display = Display.getDisplay(this);
-	   	configCommand = new Command("Config", Command.SCREEN,0);
-	   	launchCommand = new Command("Go", Command.OK,1);
-	   	exitCommand = new Command("Exit", Command.EXIT,2);
-	   	backCommand = new Command("Back", Command.BACK, 0);
-    	saveCommand = new Command("Save", Command.OK, 1);
-    	recordCommand = new Command("Record Sound", Command.SCREEN, 2);
-	    startRecordCommand = new Command("Start Recording", Command.OK, 0);
-	    stopRecordCommand = new Command("Stop Recording", Command.OK, 0);
-	    playback = new Command("Playback Sound", Command.EXIT, 1);
-	    m.addCommand(configCommand);
-	    m.addCommand(launchCommand);
-	    m.addCommand(exitCommand);
-	    m.setCommandListener(this);
-	    config.addCommand(backCommand);
-	    config.addCommand(saveCommand);
-	    config.addCommand(recordCommand);
-	    config.setCommandListener(this);
-	    r.addCommand(startRecordCommand);
-	    r.setCommandListener(this);
-	    recorder = new Recorder(); 
+	    	display = Display.getDisplay(this);
+	    	configCommand = new Command("Config", Command.SCREEN,0);
+	    	launchCommand = new Command("Go", Command.OK,1);
+	    	exitCommand = new Command("Exit", Command.EXIT,2);
+		backCommand = new Command("Back", Command.BACK, 0);
+		saveCommand = new Command("Save", Command.OK, 1);
+		recordCommand = new Command("Record Sound", Command.SCREEN, 2);
+		startRecordCommand = new Command("Start Recording", Command.OK, 0);
+		stopRecordCommand = new Command("Stop Recording", Command.OK, 0);
+		playback = new Command("Playback Sound", Command.EXIT, 1);
+	    	m.addCommand(configCommand);
+	    	m.addCommand(launchCommand);
+	    	m.addCommand(exitCommand);
+	    	m.setCommandListener(this);
+	    	config.addCommand(backCommand);
+	    	config.addCommand(saveCommand);
+	    	config.addCommand(recordCommand);
+	    	config.setCommandListener(this);
+	    	r.addCommand(startRecordCommand);
+	    	r.setCommandListener(this);
+	    	recorder = new Recorder(this); 
 	}
 	
 	protected void destroyApp(boolean unconditional) 
 	{
 		// TODO Auto-generated method stub
 		notifyDestroyed();
+
 	}
 
 	public void startApp() 
@@ -77,8 +78,10 @@ public class MobileSoundNotifier extends MIDlet implements CommandListener
 	public void testVibrate()
 	{
 		Display.getDisplay(this).vibrate(800);
-		System.err.println("Worked");	
+		System.err.println("Worked");
+		
 	}
+	;;
 	
 	protected void pauseApp() 
 	{
@@ -177,6 +180,10 @@ public class MobileSoundNotifier extends MIDlet implements CommandListener
 		{
 			recorder.playbackSound();
 		}
+	}
+	public void setGraphScreen(GraphScreen gs)
+	{
+		display.setCurrent(gs);
 	}
 }
 	
