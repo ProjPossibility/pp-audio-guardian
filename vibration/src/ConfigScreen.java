@@ -1,10 +1,11 @@
 import javax.microedition.lcdui.*;
-public class ConfigScreen extends Form{
-
+public class ConfigScreen extends Form
+{
 	public TextField volumeField;
 	private int volLvl;
 	
-	public ConfigScreen() {
+	public ConfigScreen() 
+	{
 		// TODO Auto-generated constructor stub
 		super("Config");
 		volumeField = new TextField("Enter the Volume Level:","", 3, TextField.NUMERIC);
@@ -30,6 +31,4 @@ public class ConfigScreen extends Form{
 		g.setFont(Font.getFont(Font.FACE_PROPORTIONAL,Font.STYLE_BOLD,Font.SIZE_LARGE));
 		g.drawString (name, width / 2, height * 3/4,Graphics.BASELINE | Graphics.HCENTER);
 	}*/
-
-
 }

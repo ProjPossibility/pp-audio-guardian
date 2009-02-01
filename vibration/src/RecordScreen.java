@@ -6,7 +6,8 @@ import javax.microedition.midlet.*;
 import javax.microedition.lcdui.*;
 
 
-public class RecordScreen extends Canvas {
+public class RecordScreen extends Canvas 
+{
 
 	private int width;
 	private int height;
@@ -18,7 +19,8 @@ public class RecordScreen extends Canvas {
 	}
 			   
 
-	protected void paint(Graphics g) {
+	protected void paint(Graphics g) 
+	{
 		// TODO Auto-generated method stub
 		g.setColor(0xffffff);
 		g.fillRect(0, 0, width, height);

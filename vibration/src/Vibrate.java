@@ -7,8 +7,8 @@ import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotOpenException;
 import javax.microedition.lcdui.*;
 
-public class Vibrate extends MIDlet implements CommandListener {
-
+public class Vibrate extends MIDlet implements CommandListener 
+{
 	public Command configCommand;
 	public Command launchCommand;
 	public Command exitCommand;
@@ -25,7 +25,8 @@ public class Vibrate extends MIDlet implements CommandListener {
 	public RecordScreen r;
 	private Recorder recorder;
 	
-	public Vibrate() {
+	public Vibrate() 
+	{
 		m = new mainScreen();
 		config = new ConfigScreen();
 		r = new RecordScreen();
@@ -38,41 +39,41 @@ public class Vibrate extends MIDlet implements CommandListener {
 		{
 		}
 		
-	    display = Display.getDisplay(this);
-	    configCommand = new Command("Config", Command.SCREEN,0);
-	    launchCommand = new Command("Go", Command.OK,1);
-	    exitCommand = new Command("Exit", Command.EXIT,2);
+	    	display = Display.getDisplay(this);
+	    	configCommand = new Command("Config", Command.SCREEN,0);
+	    	launchCommand = new Command("Go", Command.OK,1);
+	    	exitCommand = new Command("Exit", Command.EXIT,2);
 		backCommand = new Command("Back", Command.BACK, 0);
 		saveCommand = new Command("Save", Command.OK, 1);
 		recordCommand = new Command("Record Sound", Command.SCREEN, 2);
 		startRecordCommand = new Command("Start Recording", Command.OK, 0);
 		stopRecordCommand = new Command("Stop Recording", Command.OK, 0);
 		playback = new Command("Playback Sound", Command.EXIT, 1);
-	    m.addCommand(configCommand);
-	    m.addCommand(launchCommand);
-	    m.addCommand(exitCommand);
-	    m.setCommandListener(this);
-	    config.addCommand(backCommand);
-	    config.addCommand(saveCommand);
-	    config.addCommand(recordCommand);
-	    config.setCommandListener(this);
-	    r.addCommand(startRecordCommand);
-	    r.setCommandListener(this);
-	    recorder = new Recorder();
-	    
-	    
-	  }
+	    	m.addCommand(configCommand);
+	    	m.addCommand(launchCommand);
+	    	m.addCommand(exitCommand);
+	    	m.setCommandListener(this);
+	    	config.addCommand(backCommand);
+	    	config.addCommand(saveCommand);
+	    	config.addCommand(recordCommand);
+	    	config.setCommandListener(this);
+	    	r.addCommand(startRecordCommand);
+	    	r.setCommandListener(this);
+	    	recorder = new Recorder(); 
+	}
 	
-	protected void destroyApp(boolean unconditional) {
+	protected void destroyApp(boolean unconditional) 
+	{
 		// TODO Auto-generated method stub
 		notifyDestroyed();
 
 	}
 
-	  public void startApp() {
-	    display.setCurrent(m);
-	   // display.vibrate(2000);
-	  }
+	public void startApp() 
+	{
+		display.setCurrent(m);
+	   	// display.vibrate(2000);
+	}
 	
 	public void testVibrate()
 	{
@@ -81,7 +82,8 @@ public class Vibrate extends MIDlet implements CommandListener {
 		
 	}
 
-	protected void pauseApp() {
+	protected void pauseApp() 
+	{
 		// TODO Auto-generated method stub
 
 	}
@@ -96,24 +98,31 @@ public class Vibrate extends MIDlet implements CommandListener {
 		{		
 			byte b1[] = new byte[1];
 			int length = 0;
-			try {
-			for(int x = 1; x <= saveData.getNumRecords(); x++)
+			try 
 			{
-				if(saveData.getRecordSize(x) > b1.length)
+				for(int x = 1; x <= saveData.getNumRecords(); x++)
 				{
-					b1 = new byte[saveData.getRecordSize(x)];
+					if(saveData.getRecordSize(x) > b1.length)
+					{
+						b1 = new byte[saveData.getRecordSize(x)];
+					}
+					length = saveData.getRecord(x, b1, 0);
 				}
-				length = saveData.getRecord(x, b1, 0);
-			}
-			} catch (RecordStoreNotOpenException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			} catch (InvalidRecordIDException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			} catch (RecordStoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			} 
+			catch (RecordStoreNotOpenException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			catch (InvalidRecordIDException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			catch (RecordStoreException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			String s1 = new String(b1, 0, length); 
 			config.volumeField.setString(s1);
@@ -158,21 +167,18 @@ public class Vibrate extends MIDlet implements CommandListener {
 		
 		else if(c == stopRecordCommand)
 		{
-		recorder.stop();
-		r.removeCommand(stopRecordCommand);
-		r.addCommand(startRecordCommand);
-		if(recorder.count() >= 1)
-		{
-			r.addCommand(playback);
+			recorder.stop();
+			r.removeCommand(stopRecordCommand);
+			r.addCommand(startRecordCommand);
+			if(recorder.count() >= 1)
+			{
+				r.addCommand(playback);
+			}
 		}
-		}
-		
 		else if(c == playback)
 		{
 			recorder.playbackSound();
 		}
-		
-		
 	}
 }
 	
