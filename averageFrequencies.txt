@@ -1,0 +1,6 @@
+Car horn: 300 Hz
+Sirens: 1 KHz - 4 KHz
+Gunfire: avg cyclic frequency of 60.6 Hz
+Fire alarms: ~3200 Hz
+Dog bark: 850-1000 HZ
+Note: dog bark is characterised by the intersection of "Low" and "Medium" dog barks as shown by the following website: http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B6T48-4J2KT4D-4&_user=4423&_rdoc=1&_fmt=&_orig=search&_sort=d&view=c&_acct=C000059605&_version=1&_urlVersion=0&_userid=4423&md5=65e5fddebdc66ebb108b05be8fa78eab
