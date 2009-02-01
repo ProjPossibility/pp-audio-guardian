@@ -5,7 +5,6 @@ import javax.microedition.media.control.*;
 import javax.microedition.midlet.*;
 import javax.microedition.lcdui.*;
 
-
 public class RecordScreen extends Canvas 
 {
 
@@ -18,7 +17,6 @@ public class RecordScreen extends Canvas
 		height = getHeight();
 	}
 			   
-
 	protected void paint(Graphics g) 
 	{
 		// TODO Auto-generated method stub
@@ -27,5 +25,4 @@ public class RecordScreen extends Canvas
 		g.setColor(0x000000);
 		g.setFont(Font.getFont(Font.FACE_PROPORTIONAL,Font.STYLE_BOLD, Font.SIZE_LARGE));
 	}
-	
 }

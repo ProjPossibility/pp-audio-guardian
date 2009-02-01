@@ -22,7 +22,6 @@ public class ConfigScreen extends Form
 		return volLvl;
 	}
 	
-
 	/*protected void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		g.setColor(0xffffff);

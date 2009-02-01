@@ -20,7 +20,6 @@ public class mainScreen extends Canvas
 			e.printStackTrace();
 			img = null;
 		}
-		
 	}
 
 	protected void paint(Graphics g) 
@@ -38,5 +37,4 @@ public class mainScreen extends Canvas
 	{
 		name = n;
 	}
-
 }
