@@ -1,0 +1,7 @@
+MIDlet-Jar-Size: 40118
+MIDlet-Jar-URL: IAlert.jar
+MIDlet-Name: IAlert Midlet Suite
+MIDlet-Vendor: Midlet Suite Vendor
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
