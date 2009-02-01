@@ -14,9 +14,11 @@ public class Recorder implements Runnable
 	private boolean doStop = false;
 	private int count = 0;
 	private  byte[] recordedSoundArray;
+	private MobileSoundNotifier msn;
 	
-	public Recorder()
-	{
+	public Recorder(MobileSoundNotifier a)
+	{	
+		msn=a;
 	}
 	
 	public void stop()
@@ -34,34 +36,42 @@ public class Recorder implements Runnable
 	public void run()
 	{
 		// Audio Loop
-	   	// Create a Player that captures live audio.
-	    Player p;
+	    	// Create a Player that captures live audio.
+	    	Player p;
 		try 
 		{
 			p = Manager.createPlayer("capture://audio");
 			p.realize();
 	    
-	    	// Create record control for player
-	    	RecordControl rc = (RecordControl)p.getControl("RecordControl");
+	    		// Create record control for player
+	    		RecordControl rc = (RecordControl)p.getControl("RecordControl");
 	    
-	    	// Create file to write to
-	    	ByteArrayOutputStream output = new ByteArrayOutputStream();
-	    	output.reset();
-	    	output.flush();
-	    	// Configure record stream destination
-	    	rc.setRecordStream(output);
-	    	rc.startRecord();
-	    	p.start();
+	    		// Create file to write to
+	    		ByteArrayOutputStream output = new ByteArrayOutputStream();
+	    		output.reset();
+	    		// Configure record stream destination
+	    		rc.setRecordStream(output);
+	    		rc.startRecord();
+	    		p.start();
 	    
-	    	while(!doStop)
-	    	{
-	    		Thread.sleep(10);
-		   		recordedSoundArray = output.toByteArray();
-	    	}
+	    		while(!doStop)
+	    		{
+	    			Thread.sleep(10);
+		    		recordedSoundArray = output.toByteArray();
+	    		
+		    		if(recordedSoundArray.length > 0)
+		    		{
+		    			GraphScreen gs = new GraphScreen();
+		    			gs.drawGraph(recordedSoundArray);
+		    			msn.setGraphScreen(gs);
+		    		}
+	    		
+	    		}
 	    
-	   		p.stop();
+	    		
 	   	 	rc.stopRecord();
-	   		rc.commit();
+	    		rc.commit();
+	    		p.stop();
 		}
 		catch(Exception e)
 		{
@@ -71,7 +81,7 @@ public class Recorder implements Runnable
 	public void playbackSound()
 	{
 		ByteArrayInputStream recordedInputStream = new ByteArrayInputStream(recordedSoundArray);
-	    Player p2;
+	    	Player p2;
 		try 
 		{
 			p2 = Manager.createPlayer(recordedInputStream,"audio/x-wav");
