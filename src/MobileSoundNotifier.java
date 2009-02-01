@@ -81,7 +81,8 @@ public class MobileSoundNotifier extends MIDlet implements CommandListener
 		System.err.println("Worked");
 		
 	}
-
+	;;
+	
 	protected void pauseApp() 
 	{
 		// TODO Auto-generated method stub
