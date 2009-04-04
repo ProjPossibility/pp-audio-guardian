@@ -1,6 +1,0 @@
-MIDlet-Version: 0.0.1
-MIDlet-Vendor: Project Possibility
-MIDlet-Jar-URL: AudioGuardian.jar
-MicroEdition-Configuration: CLDC-1.1
-MicroEdition-Profile: MIDP-2.0
-MIDlet-Name: AudioGuardian
