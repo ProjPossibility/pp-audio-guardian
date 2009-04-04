@@ -1,0 +1,7 @@
+MIDlet-Jar-Size: 38784
+MIDlet-Jar-URL: AudioGuardian.jar
+MIDlet-Name: AudioGuardian
+MIDlet-Vendor: Project Possibility
+MIDlet-Version: 0.0.1
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
