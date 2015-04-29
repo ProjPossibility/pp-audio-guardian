@@ -1,0 +1,1 @@
+![http://projectpossibility.org/wiki/images/d/d0/Main.jpg](http://projectpossibility.org/wiki/images/d/d0/Main.jpg)
